@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('medsite/', index), # Обработчик главной страницы
     # path('test/', test), # проверочная страница
-    path.('medsite/', include('medsite.urls'))
+    path('medsite/', include('medsite.urls'))
     
 ]
 
