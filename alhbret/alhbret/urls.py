@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from medsite.views import index
+
+'''Обработчик url адресов'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('medsite', index), # Обработчик главной страницы (шаблона)
 ]
