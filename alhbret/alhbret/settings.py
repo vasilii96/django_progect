@@ -25,7 +25,7 @@ SECRET_KEY = '5n^n*p1q+2x%6m#b0u4utmotr$)7(=n!31-y(*z-)rwsz(77et'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #<----указываем сервер когда тестируем на реальном сервере
 
 
 # Application definition

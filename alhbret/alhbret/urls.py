@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('medsite/', index), # Обработчик главной страницы
     # path('test/', test), # проверочная страница
-    path('medsite/', include('medsite.urls'))
-    
+    path('', include('medsite.urls')), # Для главной странички сделали её url таким образом http://127.0.0.1:8000
 ]
 
+#handler404 = pageNotFound  <------когда переносить будем снять коммент

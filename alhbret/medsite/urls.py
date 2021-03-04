@@ -7,6 +7,6 @@ from medsite.views import *
 '''
 
 urlpatterns = [
-    path('', index), # http://127.0.0.1:8000/medsite/ (Такой url)
-    path('test/', test), # http://127.0.0.1:8000/medsite/test (так будет формироваться url (Пример тестового))
+    path('', index), # http://127.0.0.1:8000 (Такой url)
+    path('test/<slug:testid>/', test), # http://127.0.0.1:8000/medsite/test (так будет формироваться url (Пример тестового))
 ]
