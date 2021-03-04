@@ -3,11 +3,13 @@ from django.shortcuts import render, redirect
 
 '''Функции представления страниц '''
 
-def index(request):  # Гравная
-    return render(request, 'medsite/index.html')
+menu = ['О сайте', 'Регистрация', 'Войти']
+
+def index(request):  # Гравная, 3й параметр получает словаль, для использавание его в шаблонах html страниц
+    return render(request, 'medsite/index.html', {'title' : 'Главная страница', 'menu': menu} )
 
 def about(request): # Тестовая страница о Нас
-    return render(request,'medsite/about.html')
+    return render(request,'medsite/about.html',{'title' : 'Страница о нас', 'menu': menu})
 
 
 def test(request, testid): # Тестовая проверочная страница

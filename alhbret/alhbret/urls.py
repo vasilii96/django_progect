@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from medsite.views import index
-from medsite.views import test
+from medsite.views import *
 from django.urls import include
 
 '''Обработчик url адресов'''

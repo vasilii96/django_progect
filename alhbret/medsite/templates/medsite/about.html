@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>О сайте</title>
-</head>
-<body>
-<h1>Tестовая о сайте</h1>
-</body>
-</html>
+{% extends 'medsite/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p> Содержимое страницы о Нас
+    {% endblock %}
