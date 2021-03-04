@@ -1,10 +1,14 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 '''Функции представления страниц '''
 
 def index(request):  # Гравная
-    return HttpResponse('Страница приложения medsite')
+    return render(request, 'medsite/index.html')
+
+def about(request): # Тестовая страница о Нас
+    return render(request,'medsite/about.html')
+
 
 def test(request, testid): # Тестовая проверочная страница
     if (request.POST):
