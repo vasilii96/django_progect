@@ -1,12 +1,17 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 
+from medsite.views import *
+from .models import *
+
 '''Функции представления страниц '''
 
 menu = ['О сайте', 'Регистрация', 'Войти']
 
+
 def index(request):  # Гравная, 3й параметр получает словаль, для использавание его в шаблонах html страниц
-    return render(request, 'medsite/index.html', {'title' : 'Главная страница', 'menu': menu} )
+    users = User.objects.all()
+    return render(request, 'medsite/index.html', {'users': users, 'title' : 'Главная страница', 'menu': menu} )
 
 def about(request): # Тестовая страница о Нас
     return render(request,'medsite/about.html',{'title' : 'Страница о нас', 'menu': menu})

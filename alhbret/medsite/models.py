@@ -7,7 +7,10 @@ class User(models.Model):
     name = models.CharField(max_length=255)
     second_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255)
-    dob = models.CharField(max_length=8)
+    dob = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
     # pass
 
 class Login(models.Model):
