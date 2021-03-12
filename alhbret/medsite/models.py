@@ -8,6 +8,7 @@ class User(models.Model):
     second_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255)
     dob = models.CharField(max_length=100)
+    # slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL') # надо сделать миграции
     mail_id = models.ForeignKey('Login', on_delete = models.PROTECT, null=True) # Сщздали ключ для связи таблиц, без возможности
                                                                                 # удаления записи из другой таблицы
     def __str__(self):
@@ -23,9 +24,8 @@ class User(models.Model):
 class Login(models.Model):
     # Надо ли здесь устанавливать  id???
     email = models.EmailField(max_length=255)
-    password = models.CharField(max_length=255)
-    # pass
-
+    password = models.CharField(max_length=255)    # pass
+    password2 = models.CharField(max_length=255)
     def __str__(self):
         return self.email
 # class Configurator(models.Model):

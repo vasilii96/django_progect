@@ -1,4 +1,6 @@
-html, body{
-background: graypython;
-font-family: 'Montserrat';
+html,
+body {
+    background: rgb(74, 158, 160);
+    font-family: 'Montserrat';
+    font: 18px "Arial", sans-serif;
 }

@@ -12,6 +12,7 @@ from .models import *
 '''
 class UserAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'second_name', 'dob')
+    list_editable = ['dob']
 
 class LoginAdmin(admin.ModelAdmin):
     list_display = ('id', 'email', 'password')

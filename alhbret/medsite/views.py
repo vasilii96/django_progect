@@ -3,15 +3,21 @@ from django.shortcuts import render, redirect
 
 from medsite.views import *
 from .models import *
+from .forms import *
 
 '''Функции представления страниц '''
 
 menu = [{'title': 'О сайте', 'url_name':'about'},
         {'title': 'Регистрация', 'url_name': 'login'},
-        {'title': 'Войти', 'url_name': 'enter'}
+        {'title': 'Войти', 'url_name': 'enter'},
         # О сайте', 'Регистрация', 'Войти'
-         ]
+]
 
+
+# def add_user(request):
+#     form = AddUserForm()
+#     return render(request, 'medsite/adduser.html')
+    
 
 def index(request):  # Гравная, 3й параметр получает словаль, для использавание его в шаблонах html страниц
     users = User.objects.all()
