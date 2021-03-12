@@ -4,10 +4,10 @@ from django.db import models
 
 class User(models.Model):
     # id поле автоматически устанавливается в джанго
-    name = models.CharField(max_length=255)
-    second_name = models.CharField(max_length=255)
-    middle_name = models.CharField(max_length=255)
-    dob = models.CharField(max_length=100)
+    name = models.CharField(max_length=255, verbose_name='имя')
+    second_name = models.CharField(max_length=255, verbose_name='фамилия')
+    middle_name = models.CharField(max_length=255, verbose_name='отчество')
+    dob = models.CharField(max_length=100, verbose_name='дата рождения')
     # slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL') # надо сделать миграции
     mail_id = models.ForeignKey('Login', on_delete = models.PROTECT, null=True) # Сщздали ключ для связи таблиц, без возможности
                                                                                 # удаления записи из другой таблицы
@@ -23,8 +23,8 @@ class User(models.Model):
 
 class Login(models.Model):
     # Надо ли здесь устанавливать  id???
-    email = models.EmailField(max_length=255)
-    password = models.CharField(max_length=255)    # pass
+    email = models.EmailField(max_length=255, verbose_name='электроная почта')
+    password = models.CharField(max_length=255, verbose_name='пароль')    # pass
     password2 = models.CharField(max_length=255)
     def __str__(self):
         return self.email

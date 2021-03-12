@@ -4,13 +4,13 @@ from django.shortcuts import render, redirect
 from medsite.views import *
 from .models import *
 from .forms import *
+from .models import Login
 
 '''Функции представления страниц '''
 
 menu = [{'title': 'О сайте', 'url_name':'about'},
         {'title': 'Регистрация', 'url_name': 'login'},
-        {'title': 'Войти', 'url_name': 'enter'},
-        # О сайте', 'Регистрация', 'Войти'
+        {'title': 'Войти', 'url_name': 'enter'}        # О сайте', 'Регистрация', 'Войти'
 ]
 
 
@@ -25,6 +25,15 @@ def index(request):  # Гравная, 3й параметр получает с�
 
 def about(request): # Тестовая страница о Нас
     return render(request,'medsite/about.html',{'title' : 'Страница о нас', 'menu': menu})
+
+def index2(request):
+
+    form = LoginForm()
+    context = {
+        'form':form
+
+    }
+    return render(request,'medsite/index2.html', context)
 
 # def login(request): # Тестовая страница login
 #     return HttpResponse('Регистрация')

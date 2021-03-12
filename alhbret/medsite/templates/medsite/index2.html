@@ -1,0 +1,20 @@
+{% extends 'medsite/base.html' %}
+{% block title %}
+создать
+{% endblock %}
+
+{% block content %}
+<h1>Регистрация</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.email }}
+     {{ form.password }}<br>
+     {{ form.password2 }}<br>
+<!--    <input type="text" placeholder="Введите Email" class="form-control">-->
+<!--    <input type="text" placeholder="Введите пароль" class="form-control">-->
+<!--    <input type="text" placeholder="Повторите пароль" class="form-control">-->
+    <button type="submit" class="btn btn-success">Отправить</button>
+    <span>{{ error }}</span>
+      
+</form>
+{% endblock %}
