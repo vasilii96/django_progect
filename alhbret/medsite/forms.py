@@ -19,16 +19,51 @@ class LoginForm(ModelForm):
         model = Login #<------Указаваем модель с которой работаем
         fields = ['email', 'password', 'password2'] #<-------Указываем название рабочих полей участвуевших в моделе
         widgets = {
-                    'email': TextInput(attrs=={
-                        'class':'form-control'
+                    'email': TextInput(attrs={
+                        'class':'form-control',
                             'placeholder':'Введите Email'
                                 }),
-                    'password': TextInput(attrs=={
-                        'class': 'form-control'
+                    'password': TextInput(attrs={
+                        'class': 'form-control',
                             'placeholder':'Введите пароль'
                                 }),
-                    'password2': TextInput(attrs=={
-                        'class': 'form-control'
+                    'password2': TextInput(attrs={
+                        'class': 'form-control',
                             'placeholder':'Повторите пароль'
         })
         }
+
+
+
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User #<--------Указываем модель с которой работаем
+        fields = ['name', 'second_name', 'middle_name','dob','mail_id'] # <----Указываем названия полей в моделе
+        widgets = {
+            'name':TextInput(attrs={
+                'class':'form-control',
+                'placeholder':'Введите имя'
+            }),
+            'second_name':TextInput(attrs={
+                'class':'form-control',
+                'placeholder':'Введите фамилию'
+            }),
+            'maiddle_name': TextInput(attrs={
+                'class':'form-control',
+                'placeholder':'Введите отчество'
+            }),
+            'dob': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Введите дату рождения'
+            }),
+            'mail_id': TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'введите'
+
+            })
+        }
+
+
+
+

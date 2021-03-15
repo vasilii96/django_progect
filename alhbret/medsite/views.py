@@ -5,6 +5,7 @@ from medsite.views import *
 from .models import *
 from .forms import *
 from .models import Login
+from .models import User
 
 '''Функции представления страниц '''
 
@@ -26,14 +27,41 @@ def index(request):  # Гравная, 3й параметр получает с�
 def about(request): # Тестовая страница о Нас
     return render(request,'medsite/about.html',{'title' : 'Страница о нас', 'menu': menu})
 
-def index2(request):
+def index2(request): #<-----Создана для проверки формы Login
+    error = ''
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        # else:
+        #     error = 'форма не корректная'
 
     form = LoginForm()
     context = {
         'form':form
+        # 'error':error
 
     }
     return render(request,'medsite/index2.html', context)
+
+def form_pac(request): #<-----Создана для проверки формы User
+    error = ''
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        # else:
+        #     error = 'форма не корректная'
+
+    form = UserForm()
+    context = {
+        'form':form
+        # 'error':error
+
+    }
+    return render(request,'medsite/form_pac.html', context)
 
 # def login(request): # Тестовая страница login
 #     return HttpResponse('Регистрация')
