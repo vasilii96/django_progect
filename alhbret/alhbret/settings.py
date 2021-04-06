@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [] #<----указываем сервер когда тестируем на реальном сервере
 
+ACCOUNT_ACTIVATION_DAYS = 7 # Недельное окно активации;  можно использовать другое значение.
+
 
 # Application definition
 
@@ -38,9 +40,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
-    'medsite.apps.MedsiteConfig' # создали и зарегистривали приложение
-]
+     # 'accounts',  # создал приложения для авторизации
+# # '''
+# # Пакет django-registration требует установки в settings.py приложения registration
+# # '''
+#
+#     'registration'
+
+
+# '''
+# Зарегистрировали приложение в джанго
+# '''
+    'medsite.apps.MedsiteConfig' 
+    
+# #
+# '''
+# Работа с регистрацией и авторизацией
+# '''
+#     'allauth',# <-------работа с авторизацией
+#     'allauth.account', # <------- и регистрацией
+ ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,7 +103,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+AUTHENTICATION_BECKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backend.AuthenticationBackend'
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -116,6 +140,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+# LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -123,3 +148,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES = []
+
+
+# для отправки кода активации
+AUTH_USER_EMAIL_UNIQUE = True
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+# DEFAULT_FROM_EMAIL = 'info@google.ru'

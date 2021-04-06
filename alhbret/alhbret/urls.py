@@ -25,6 +25,9 @@ urlpatterns = [
     # path('medsite/', index), # Обработчик главной страницы
     # path('test/', test), # проверочная страница
     path('', include('medsite.urls')), # Для главной странички сделали её url таким образом http://127.0.0.1:8000
+    path('accounts/', include('django.contrib.auth.urls')),
+    # path('login', login),
+    # path('signup',signup)
 ]
 
 #handler404 = pageNotFound  <------когда переносить будем снять коммент

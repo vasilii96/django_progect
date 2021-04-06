@@ -4,17 +4,16 @@
 {% endblock %}
 
 {% block content %}
-<h1>Данные пациента</h1>
+<h1>Авторизация</h1>
 <form method="POST">
     {% csrf_token %}
-    {{ form.name }}
-     {{ form.second_name }}<br>
-     {{ form.middle_name }}<br>
-     {{ form.dob }}<br>
+    {{ form.email }}
+     {{ form.password }}<br>
 <!--    <input type="text" placeholder="Введите Email" class="form-control">-->
 <!--    <input type="text" placeholder="Введите пароль" class="form-control">-->
 <!--    <input type="text" placeholder="Повторите пароль" class="form-control">-->
     <button type="submit" class="btn btn-success">Отправить</button>
+    <span>{{ error }}</span>
       
 </form>
 {% endblock %}

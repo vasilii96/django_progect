@@ -25,13 +25,17 @@ class Login(models.Model):
     # Надо ли здесь устанавливать  id???
     email = models.EmailField(max_length=255, verbose_name='электроная почта')
     password = models.CharField(max_length=255, verbose_name='пароль')    # pass
-    password2 = models.CharField(max_length=255)
+    password2 = models.CharField(max_length=255, verbose_name='повторите пароль')
+
     def __str__(self):
         return self.email
-# class Configurator(models.Model):
-#     pass
 
     class Meta:
         verbose_name = 'Данные пациентов'
         verbose_name_plural = 'данные пациентов'
+
+
+
+
+
 

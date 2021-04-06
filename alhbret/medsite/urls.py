@@ -1,6 +1,6 @@
 from django.urls import path
 from medsite.views import *
-
+from medsite import views
 
 '''
 В списке urlpatterns прописываются все маршруты текущего приложения
@@ -11,8 +11,8 @@ urlpatterns = [
     path('test/<slug:testid>/', test), # http://127.0.0.1:8000/medsite/test (так будет формироваться url (Пример тестового))
     path('about/', about),
     path('index2/', index2),
-    path('form_pac/', form_pac)
-    # path('login/', login, name=login), # Прописываю страницы для тестовой обработки html страниц
-    # path('enter/', enter, name=enter) # Прописываю страницы для тестовой обработки html страниц
+    path('form_pac/', form_pac),
+    path('login/', views.login),#<------- записал через views
+    path('signup/', views.signup)#<------
 
 ]

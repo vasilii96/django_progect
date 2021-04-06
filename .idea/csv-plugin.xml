@@ -10,6 +10,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\alhbret\medsite\templates\medsite\index.html">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\alhbret\medsite\templates\medsite\work_select_tag.html">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\alhbret\medsite\views.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
