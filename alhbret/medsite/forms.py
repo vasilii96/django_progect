@@ -62,4 +62,13 @@ class UserForm(ModelForm):
 
             })
         }
+'''
+Пробный класс
+'''
+
+# class MyForm(forms.Form):
+#     CHOICES = (('Option 1', 'Option 1'),('Option 2', 'Option 2'),)
+#     field = forms.ChoiceField(choices=CHOICES)
+#
+# print (MyForm().as_p())
 

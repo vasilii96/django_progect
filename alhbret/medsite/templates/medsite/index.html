@@ -1,41 +1,92 @@
-{% extends 'medsite/base.html' %}
-
-{% block content %}
-<h1>{{ title }}</h1>
-<ul>
-      {% for name in users %}
-    <li>
-        <h2> {{ name }}</h2>
-
-    </li>
-        {% endfor %}}
+{% extends 'medsite/base.html' %} {% block content %}
 
 
-</ul>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+<script>$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+</script>
+<!--<h1>{{ title }}</h1>-->
+<!--<ul>-->
+<!--    {% for name in users %}-->
+<!--    <li>-->
+<!--        <h2> {{ name }}</h2>-->
+
+<!--    </li>-->
+<!--    {% endfor %}}-->
+
+
+<!--</ul>-->
 
 <u2>
-       <form action="select1.php" method="post">
-        <p><select size="5" multiple name=user>
+    <p><label for="id_field">Выберете имя:</label>
+        <select name="field" id="id_field">\n
     <option disabled>Выберете имя</option>
       {% for name in users %}
-            <option value={{ name }}>{{ name }}</option>
+            <option value={{ id }}>{{ name }}</option>
 
         {% endfor %}}
+</select></p>
 
 
 </u2>
 
 
-<!--   <form action="select1.php" method="post">-->
-<!--        <p><select size="5" multiple name=user>-->
-<!--    <option disabled>Выберете имя</option>-->
+<>
 
-
-<!--    <option value={{ name }}>Чебурашка</option>-->
-<!--&lt;!&ndash;    <option selected value="Крокодил Гена">Крокодил Гена</option>&ndash;&gt;-->
-<!--&lt;!&ndash;    <option value="Шапокляк">Шапокляк</option>&ndash;&gt;-->
-<!--&lt;!&ndash;    <option value="Крыса Лариса">Крыса Лариса</option>&ndash;&gt;-->
-   </select></p>
-        <p><input type="submit" value="Отправить"></p>
+    </select>
     </form>
-{% endblock content %}
+
+    <form action="select2.php" method="post">
+
+
+        <p><input type="submit" value="Отправить"></p>
+        <!--Проба-->
+        <!-- Control buttons -->
+        {% for name in users %}
+        <div id="myBtnContainer">
+            <button class="btn" onclick="filterSelection('users')"> {{ name.name }}</button>
+        </div>
+        <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+        <div class="container">
+            <div class="filterDiv midlle_name">{{ name.midlle_name }}</div>
+            <div class="filterDiv second_name">{{ name.second_name}}</div>
+            <div class="filterDiv dob">{{ name.dob}}</div>
+
+            <!--  <div class="filterDiv name">Имя</div>-->
+
+        </div>
+        {% endfor %}
+    </form>
+
+<!--очередная попытка сделать форму для фамилий    -->
+
+<!--<form>-->
+<!--    {% csrf_token %}-->
+<!--    <select class="ui search dropdown">-->
+<!--        <option value="">People</option>-->
+<!--        {% for people in people_data %}-->
+
+<!--            <option value={{ people_data }}>{{ people.name }}</option>-->
+
+<!--        {% endfor %}-->
+
+
+<!--    <select class="ui search dropdown">-->
+<!--        <option value="">People</option>-->
+<!--        {% for people in people_data %}-->
+<!--    -->
+<!--            <option value={{ people_data }}>{{ people.name }}</option>-->
+<!--    -->
+<!--        {% endfor %}-->
+
+<!--    </select>-->
+<!--</form>-->
+
+<!--{% endblock content %}-->

@@ -27,6 +27,7 @@ menu = [{'title': 'О сайте', 'url_name':'about'},
 
 def index(request):  # Гравная, 3й параметр получает словаль, для использавание его в шаблонах html страниц
     users = User.objects.all()
+
     # SELECT "medsite_user"."name"
     # FROM "medsite_user"
     # users_sum = len(users)
@@ -37,6 +38,16 @@ def index(request):  # Гравная, 3й параметр получает с�
     # conn.commit()
     # conn.close()
     return render(request, 'medsite/index.html', {'users': users, 'title' : 'Главная страница', 'menu': menu} )
+
+
+'''
+Функция для отображения данных
+'''
+def index3(request):
+    people_data = User.objects.all()
+
+
+    return render(request, 'medsite/index.html', {'people_data': people_data })
 
 
 
